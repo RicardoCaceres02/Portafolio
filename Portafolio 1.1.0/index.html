@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ricardo — Portafolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="hp-app">
+    <canvas id="particles"></canvas>
+
+    <!-- SIDEBAR -->
+    <div id="sidebar">
+      <div class="sidebar-logo">
+        <span class="crest">⚡</span>
+        <h1>Ricardo<br>Portafolio</h1>
+        <p>Desarrollador &amp; Investigador</p>
+      </div>
+      <nav>
+        <div class="nav-label">Grimorio</div>
+        <div class="nav-item active" data-page="home" onclick="nav('home')">
+          <i class="fa-solid fa-table-columns nav-icon"></i> Dashboard
+        </div>
+        <div class="nav-item" data-page="projects" onclick="nav('projects')">
+          <i class="fa-solid fa-book nav-icon"></i> Proyectos
+        </div>
+        <div class="nav-item" data-page="about" onclick="nav('about')">
+          <i class="fa-solid fa-user nav-icon"></i> Perfil
+        </div>
+        <div class="nav-label">Acciones</div>
+        <div class="nav-item" data-page="upload" onclick="nav('upload')">
+          <i class="fa-solid fa-upload nav-icon"></i> Subir Proyecto
+        </div>
+        <div class="nav-item" data-page="contact" onclick="nav('contact')">
+          <i class="fa-solid fa-envelope nav-icon"></i> Contacto
+        </div>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="house-badge">
+          <div class="house-dot"></div>
+          <span>Gryffindor</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main">
+
+      <!-- HOME PAGE -->
+      <div class="page active" id="page-home">
+        <div class="page-header">
+          <div class="page-eyebrow">Dashboard Principal</div>
+          <div class="page-title">El Gran Salón</div>
+          <div class="page-subtitle">"Solemnis Lux Lucet" — La luz solemne brilla</div>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card gold">
+            <div class="stat-num" id="stat-proj">0</div>
+            <div class="stat-label">Proyectos</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num" style="color:var(--hp-parchment-dim)">3+</div>
+            <div class="stat-label">Años Exp.</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num" style="color:var(--hp-parchment-dim)">8</div>
+            <div class="stat-label">Tecnologías</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num" style="color:var(--hp-parchment-dim)">∞</div>
+            <div class="stat-label">Magia</div>
+          </div>
+        </div>
+        <div class="section-title">✦ Proyectos Recientes</div>
+        <div class="projects-grid" id="recent-projects"></div>
+        <div class="divider"></div>
+        <div class="section-title">✦ Habilidades</div>
+        <div class="skill-section">
+          <div class="skill-row"><span class="skill-name">Seguridad Informática</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:0%" data-w="85"></div></div><span class="skill-pct">85%</span></div>
+          <div class="skill-row"><span class="skill-name">Linux / VMware</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:0%" data-w="80"></div></div><span class="skill-pct">80%</span></div>
+          <div class="skill-row"><span class="skill-name">Python / Scripting</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:0%" data-w="72"></div></div><span class="skill-pct">72%</span></div>
+          <div class="skill-row"><span class="skill-name">Redes / Protocolos</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:0%" data-w="70"></div></div><span class="skill-pct">70%</span></div>
+          <div class="skill-row"><span class="skill-name">Análisis de Datos</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:0%" data-w="65"></div></div><span class="skill-pct">65%</span></div>
+          <div class="skill-row"><span class="skill-name">React / Frontend</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:0%" data-w="60"></div></div><span class="skill-pct">60%</span></div>
+        </div>
+      </div>
+
+      <!-- PROJECTS PAGE -->
+      <div class="page" id="page-projects">
+        <div class="page-header">
+          <div class="page-eyebrow">Colección de Hechizos</div>
+          <div class="page-title">Proyectos</div>
+          <div class="page-subtitle">Cada proyecto, un grimoiro distinto</div>
+        </div>
+        <div class="projects-grid" id="all-projects"></div>
+        <div style="text-align:center;padding:20px 0;">
+          <button class="btn btn-primary" onclick="nav('upload')">
+            <i class="fa-solid fa-plus"></i> &nbsp;Agregar Proyecto
+          </button>
+        </div>
+      </div>
+
+      <!-- ABOUT PAGE -->
+      <div class="page" id="page-about">
+        <div class="page-header">
+          <div class="page-eyebrow">El Libro de los Orígenes</div>
+          <div class="page-title">Perfil</div>
+          <div class="page-subtitle">Mi historia en el mundo mágico del código</div>
+        </div>
+        <div class="profile-header">
+          <div class="profile-avatar">R</div>
+          <div>
+            <div class="profile-name">Ricardo</div>
+            <div class="profile-role">Estudiante UNAH · Seguridad Informática</div>
+            <div class="profile-bio">Aprendiz de las artes oscuras del hacking ético y la defensa de redes. Especializado en Blue Team, análisis de vulnerabilidades y arquitectura de sistemas seguros.</div>
+          </div>
+        </div>
+        <div class="section-title">✦ Trayectoria</div>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-year">2024 — Presente</div>
+            <div class="tl-title">UNAH — Seguridad Informática</div>
+            <div class="tl-sub">Universidad Nacional Autónoma de Honduras</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">2024</div>
+            <div class="tl-title">Lab Blue Team vs Red Team</div>
+            <div class="tl-sub">Wazuh, Kali Linux, VMware — Seguridad defensiva</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">2024</div>
+            <div class="tl-title">Tesis: Ancho de Banda en Honduras</div>
+            <div class="tl-sub">Investigación sobre crecimiento tecnológico y conectividad</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">2024</div>
+            <div class="tl-title">Cálculo &amp; Matemáticas Aplicadas</div>
+            <div class="tl-sub">Estudio de límites y fundamentos matemáticos</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- UPLOAD PAGE -->
+      <div class="page" id="page-upload">
+        <div class="page-header">
+          <div class="page-eyebrow">Nuevo Hechizo</div>
+          <div class="page-title">Subir Proyecto</div>
+          <div class="page-subtitle">Documenta tu magia en el grimorio</div>
+        </div>
+        <div class="add-project-panel">
+          <div class="upload-zone" onclick="document.getElementById('file-input').click()">
+            <input type="file" id="file-input" accept="image/*">
+            <span class="upload-icon">📜</span>
+            <h3>Arrastra una imagen o haz clic</h3>
+            <p id="file-label">PNG, JPG, GIF — Portada del proyecto</p>
+          </div>
+          <div class="form-grid">
+            <div class="form-field">
+              <label class="form-label">Nombre del Proyecto</label>
+              <input type="text" class="form-input" id="proj-name" placeholder="Ej: Lab Seguridad Wazuh">
+            </div>
+            <div class="form-field">
+              <label class="form-label">Estado</label>
+              <select class="form-select" id="proj-status">
+                <option value="active">Activo</option>
+                <option value="wip">En Progreso</option>
+                <option value="archived">Archivado</option>
+              </select>
+            </div>
+            <div class="form-field full">
+              <label class="form-label">Descripción</label>
+              <textarea class="form-textarea" id="proj-desc" placeholder="Describe qué hace el proyecto, qué aprendiste..."></textarea>
+            </div>
+            <div class="form-field">
+              <label class="form-label">Tecnologías (separadas por coma)</label>
+              <input type="text" class="form-input" id="proj-tech" placeholder="Python, Linux, Wazuh">
+            </div>
+            <div class="form-field">
+              <label class="form-label">Categoría</label>
+              <select class="form-select" id="proj-cat">
+                <option value="security">Seguridad</option>
+                <option value="web">Desarrollo Web</option>
+                <option value="data">Datos / IA</option>
+                <option value="research">Investigación</option>
+                <option value="other">Otro</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label class="form-label">Enlace (GitHub / Demo)</label>
+              <input type="text" class="form-input" id="proj-link" placeholder="https://github.com/...">
+            </div>
+          </div>
+          <div style="display:flex;gap:10px;justify-content:flex-end">
+            <button class="btn btn-ghost" onclick="clearForm()">Cancelar</button>
+            <button class="btn btn-primary" onclick="addProject()">⚡ Publicar en Grimorio</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONTACT PAGE -->
+      <div class="page" id="page-contact">
+        <div class="page-header">
+          <div class="page-eyebrow">Paloma Mensajera</div>
+          <div class="page-title">Contacto</div>
+          <div class="page-subtitle">Envía tu carta al Ministerio de la Magia</div>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div>
+              <div class="contact-label">Correo Electrónico</div>
+              <div class="contact-value">tu@correo.com</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa-brands fa-github"></i></div>
+            <div>
+              <div class="contact-label">GitHub</div>
+              <div class="contact-value">github.com/ricardo</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa-brands fa-linkedin"></i></div>
+            <div>
+              <div class="contact-label">LinkedIn</div>
+              <div class="contact-value">linkedin.com/in/ricardo</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa-solid fa-map-pin"></i></div>
+            <div>
+              <div class="contact-label">Ubicación</div>
+              <div class="contact-value">Tegucigalpa, Honduras</div>
+            </div>
+          </div>
+        </div>
+        <div class="add-project-panel">
+          <div class="section-title" style="margin-bottom:16px">✦ Enviar Mensaje</div>
+          <div class="form-grid">
+            <div class="form-field">
+              <label class="form-label">Nombre</label>
+              <input type="text" class="form-input" placeholder="Tu nombre">
+            </div>
+            <div class="form-field">
+              <label class="form-label">Correo</label>
+              <input type="text" class="form-input" placeholder="tu@correo.com">
+            </div>
+            <div class="form-field full">
+              <label class="form-label">Mensaje</label>
+              <textarea class="form-textarea" placeholder="Escribe tu mensaje..."></textarea>
+            </div>
+          </div>
+          <div style="text-align:right">
+            <button class="btn btn-primary" onclick="showToast('Mensaje enviado con éxito')">
+              🦉 Enviar Paloma
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end #main -->
+
+    <div class="success-toast" id="toast">
+      <span class="toast-icon">✦</span>
+      <span id="toast-msg">Proyecto añadido al grimorio</span>
+    </div>
+  </div><!-- end #hp-app -->
+
+  <script src="app.js"></script>
+</body>
+</html>
