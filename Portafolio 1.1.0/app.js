@@ -6,9 +6,9 @@ const BANNERS = ['b1','b2','b3','b4'];
 let projects = JSON.parse(localStorage.getItem('hp-projects') || 'null') || [
   {
     id: 1,
-    name: 'Lab Blue Team vs Red Team',
-    desc: 'Entorno de seguridad defensiva con Wazuh, Kali Linux y Ubuntu. Análisis de amenazas en tiempo real.',
-    tech: ['Wazuh', 'Kali Linux', 'VMware'],
+    name: '>ANALIZADOR LEXICO',
+    desc: 'Analizador basado en un lenguaje de programacion simple creado desde cero.',
+    tech: ['BNF', 'C++', 'C'],
     status: 'active',
     emoji: '🛡️',
     banner: 'b1',
