@@ -26,17 +26,6 @@ let projects = JSON.parse(localStorage.getItem('hp-projects') || 'null') || [
     link: '',
     imgData: null
   },
-  {
-    id: 3,
-    name: 'Microsoft Authenticator Sec',
-    desc: 'Análisis de vulnerabilidades y actualizaciones de seguridad en el autenticador de Microsoft.',
-    tech: ['Seguridad', 'Blue Team'],
-    status: 'wip',
-    emoji: '🔐',
-    banner: 'b3',
-    link: '',
-    imgData: null
-  }
 ];
 
 let nextId = Math.max(...projects.map(p => p.id), 3) + 1;
